@@ -5,7 +5,7 @@ body {
 }
 
 .main-header {
-    background-color: rgba(0, 0, 0, .3);
+    background-color: rgba(0, 208, 255, 0.525);
     padding-bottom: 10px;
 }
 
@@ -15,7 +15,7 @@ body {
     font-size: 8em;
     font-family: "Helvetica";
     font-weight: normal;
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 #card-container {
@@ -26,9 +26,9 @@ body {
 
 .card {
     width: 300px;
-    border: 1px solid #ccc;
+    border: 1px solid #000000;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(220, 15, 15, 0.1);
     margin: 5px;
 }
 
