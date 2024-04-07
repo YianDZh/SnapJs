@@ -23,6 +23,13 @@
  * 
  */
 
+
+
+const FRESH_PRINCE_URL = "https://upload.wikimedia.org/wikipedia/en/3/33/Fresh_Prince_S1_DVD.jpg";
+const CURB_POSTER_URL = "https://m.media-amazon.com/images/M/MV5BZDY1ZGM4OGItMWMyNS00MDAyLWE2Y2MtZTFhMTU0MGI5ZDFlXkEyXkFqcGdeQXVyMDc5ODIzMw@@._V1_FMjpg_UX1000_.jpg";
+const EAST_LOS_HIGH_POSTER_URL = "https://static.wikia.nocookie.net/hulu/images/6/64/East_Los_High.jpg";
+//TODO: Input pictures of flags
+
 //imports data from data.json
 fetch('data.json')
     .then(response => response.json())
@@ -33,10 +40,6 @@ fetch('data.json')
         console.error('Error fetching data:', error);
     });
 
-
-const FRESH_PRINCE_URL = "https://upload.wikimedia.org/wikipedia/en/3/33/Fresh_Prince_S1_DVD.jpg";
-const CURB_POSTER_URL = "https://m.media-amazon.com/images/M/MV5BZDY1ZGM4OGItMWMyNS00MDAyLWE2Y2MtZTFhMTU0MGI5ZDFlXkEyXkFqcGdeQXVyMDc5ODIzMw@@._V1_FMjpg_UX1000_.jpg";
-const EAST_LOS_HIGH_POSTER_URL = "https://static.wikia.nocookie.net/hulu/images/6/64/East_Los_High.jpg";
 
 // This is an array of strings (TV show titles)
 let titles = [
@@ -51,8 +54,6 @@ let properties = [
     "Country",
     "Value compared to USD"
 ];
-// Your final submission should have much more data than this, and 
-// you should use more than just an array of strings to store it all.
 
 //function to display text on top of the 
 function displayProperties(properties) {
@@ -71,7 +72,11 @@ function displayProperties(properties) {
         // Append the list item to the container
         container.appendChild(listItem);
     });
+    tittlesDiv.style.display = 'block';
+
 }
+// Your final submission should have much more data than this, and 
+// you should use more than just an array of strings to store it all.
 
 // Call the function with your array of properties
 
