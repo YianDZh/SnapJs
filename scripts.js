@@ -139,12 +139,12 @@ function editCardContent(card, newTitle, newImageURL) {
 // This calls the addCards() function when the page is first loaded
 document.addEventListener("DOMContentLoaded", showCards);
 
-function quoteAlert() {
-    console.log("Button Clicked!")
-    alert("I guess I can kiss heaven goodbye, because it got to be a sin to look this good!");
-}
+// function quoteAlert() {
+//     console.log("Button Clicked!")
+//     alert("I guess I can kiss heaven goodbye, because it got to be a sin to look this good!");
+// }
 
-function removeLastCard() {
-    titles.pop(); // Remove last item in titles array
-    showCards(); // Call showCards again to refresh
-}
+// function removeLastCard() {
+//     titles.pop(); // Remove last item in titles array
+//     showCards(); // Call showCards again to refresh
+// }
