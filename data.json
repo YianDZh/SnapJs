@@ -159,7 +159,7 @@
             "code": "EUR",
             "continent": "Europe"
         },
-        "currencies": [
+        "countries": [
             { "country": "Austria" },
             { "country": "Belgium" },
             { "country": "Croatia" },
@@ -189,7 +189,7 @@
             "value": 3.67,
             "code": "AED"
         },
-        "currencies": [
+        "countries": [
             { "country": "Morocco", "continent": "Africa" },
             { "country": "United Arab Emirates", "continent": "Asia"}
         ]
@@ -202,7 +202,7 @@
             "code": "XOF",
             "continent": "Africa"
         },
-        "currencies": [
+        "countries": [
             { "country": "Senegal" },
             { "country": "Mali" },
             { "country": "Niger" },
