@@ -7,7 +7,7 @@ body {
 .main-header {
     background-color: rgba(22, 48, 134, 0.525);
     padding-bottom: 9px;
-    border-top: 2px solid white;
+    border-top: 6px solid white;
 
 }
 
@@ -21,6 +21,12 @@ body {
 }
 
 #card-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+#property-container {
     display: flex;
     justify-content: center;
     margin: 20px;

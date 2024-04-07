@@ -75,6 +75,8 @@ function displayProperties(properties) {
     tittlesDiv.style.display = 'block';
 
 }
+
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // Your final submission should have much more data than this, and 
 // you should use more than just an array of strings to store it all.
 
@@ -154,5 +156,7 @@ function removeLastCard() {
     titles.pop(); // Remove last item in titles array
     showCards(); // Call showCards again to refresh
 }
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 
 displayProperties (properties);
