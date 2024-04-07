@@ -44,6 +44,7 @@ let titles = [
     "Curb Your Enthusiasm",
     "East Los High"
 ];
+
 //*array of properties to be displayed on top
 let properties = [
     "Name",
@@ -73,7 +74,6 @@ function displayProperties(properties) {
 }
 
 // Call the function with your array of properties
-displayProperties(properties);
 
 
 // Function to display titles
@@ -139,12 +139,12 @@ function editCardContent(card, newTitle, newImageURL) {
 // This calls the addCards() function when the page is first loaded
 document.addEventListener("DOMContentLoaded", showCards);
 
-// function quoteAlert() {
-//     console.log("Button Clicked!")
-//     alert("I guess I can kiss heaven goodbye, because it got to be a sin to look this good!");
-// }
+function quoteAlert() {
+    console.log("Button Clicked!")
+    alert("On the works!!");
+}
 
-// function removeLastCard() {
-//     titles.pop(); // Remove last item in titles array
-//     showCards(); // Call showCards again to refresh
-// }
+function removeLastCard() {
+    titles.pop(); // Remove last item in titles array
+    showCards(); // Call showCards again to refresh
+}
