@@ -23,6 +23,7 @@
  * 
  */
 
+//imports data from data.json
 fetch('data.json')
     .then(response => response.json())
     .then(data => {
@@ -43,10 +44,56 @@ let titles = [
     "Curb Your Enthusiasm",
     "East Los High"
 ];
+//*array of properties to be displayed on top
+let properties = [
+    "Name",
+    "Country",
+    "Value compared to USD"
+];
 // Your final submission should have much more data than this, and 
 // you should use more than just an array of strings to store it all.
 
+//function to display text on top of the 
+function displayProperties(properties) {
+    // Select the container where you want to display the properties
+    const container = document.getElementById("property-container");
 
+    // Clear the container before displaying new properties
+    container.innerHTML = "";
+
+    // Loop through the properties array
+    properties.forEach(property => {
+        // Create a new list item for each property
+        const listItem = document.createElement("li");
+        listItem.textContent = property;
+
+        // Append the list item to the container
+        container.appendChild(listItem);
+    });
+}
+
+// Call the function with your array of properties
+displayProperties(properties);
+
+
+// Function to display titles
+function displayTitles(title, wordsArray) {
+    // Set the title
+    titleElement.textContent = title;
+
+    // Clear existing list items
+    bulletList.innerHTML = '';
+
+    // Add list items from the array
+    wordsArray.forEach(word => {
+        const listItem = document.createElement('li');
+        listItem.textContent = word;
+        bulletList.appendChild(listItem);
+    });
+
+    // Show the hidden element
+    tittlesDiv.style.display = 'block';
+}
 // This function adds cards the page to display the data in the array
 function showCards() {
     const cardContainer = document.getElementById("card-container");
