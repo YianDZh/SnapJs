@@ -125,6 +125,7 @@ function showCards() {
     }
 }
 
+
 function editCardContent(card, newTitle, newImageURL) {
     card.style.display = "block";
 
@@ -153,3 +154,5 @@ function removeLastCard() {
     titles.pop(); // Remove last item in titles array
     showCards(); // Call showCards again to refresh
 }
+
+displayProperties (properties);
