@@ -72,6 +72,7 @@ function displayProperties(properties) {
         // Append the list item to the container
         container.appendChild(listItem);
     });
+    const tittlesDiv = document.querySelector('.tittles');
     tittlesDiv.style.display = 'block';
 
 }
