@@ -32,39 +32,39 @@ const currencyContent = document.querySelector('.currency-content');
 fetch('data.json')
   .then(response => response.json())
   .then(data => {
-    displayDataAsTable(data);
+    const propertiesToDisplay = ['name', 'country', 'value', 'continent'];
+    displayDataAsTable(data, propertiesToDisplay, document.querySelector('.currency-content'));
   })
   .catch(error => {
     console.error('Error fetching data:', error);
   });
 
-function displayDataAsTable(data) {
-  const table = document.createElement('table');
-  // Add code to create table headers and rows based on the data
-  const headerRow = document.createElement('tr');
-  const nameHeader = document.createElement('th');
-  nameHeader.textContent = 'Name';
-  headerRow.appendChild(nameHeader);
-
-  // Append the table to the currency-content div
-  data.forEach(item => {
-    const row = document.createElement('tr');
-
-    // Create table cells for each property in the object
-    const nameCell = document.createElement('td');
-    nameCell.textContent = item.name; // Replace 'name' with the appropriate property name
-    row.appendChild(nameCell);
-
-    // Add more table cells for other properties
-
-    table.appendChild(row);
-  });
-
-  currencyContent.appendChild(table);
-}
-
-// This is an array of strings (TV show titles)
-
+  function displayDataAsTable(data, properties, container) {
+    const table = document.createElement('table');
+    const headerRow = document.createElement('tr');
+  
+    properties.forEach(property => {
+      const headerCell = document.createElement('th');
+      headerCell.textContent = property;
+      headerRow.appendChild(headerCell);
+    });
+  
+    table.appendChild(headerRow);
+  
+    data.forEach(item => {
+      const row = document.createElement('tr');
+  
+      properties.forEach(property => {
+        const cell = document.createElement('td');
+        cell.textContent = item[property];
+        row.appendChild(cell);
+      });
+  
+      table.appendChild(row);
+    });
+  
+    container.appendChild(table);
+  }
 //*array of properties to be displayed on top
 let properties = [
     "Name",
@@ -106,6 +106,22 @@ function quoteAlert() {
     console.log("Button Clicked!")
     alert("On the works!!");
 }
+
+function shuffleElements(container) {
+  var elements = container.children;
+  for (var i = elements.length; i >= 0; i--) {
+    container.appendChild(elements[Math.random() * i | 0]);
+  }
+}
+
+// Wait for the page to fully load before shuffling the elements
+window.addEventListener('load', function() {
+  var button = document.querySelector('button[onclick*="shuffle"]');
+  button.addEventListener("click", function() {
+    var container = document.getElementById('currency-content');
+    shuffleElements(container);
+  });
+});
 
 function removeLastCard() {
     titles.pop(); // Remove last item in titles array
