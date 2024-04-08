@@ -1,214 +1,214 @@
 [
     {
-        "name": "Dollar",
-        "symbol": "$",
-        "country": "United States",
-        "continent": "North America",
-        "value": 1.00,
-        "code": "USD"
+        "Name": "Dollar",
+        "Symbol": "$",
+        "Country": "United States",
+        "Continent": "North America",
+        "Value": 1.00,
+        "Code": "USD"
     },
     {
-        "name": "Canadian Dollar",
-        "symbol": "$",
-        "country": "Canada",
-        "continent": "North America",
-        "value": 1.36,
-        "code": "CAN"
+        "Name": "Canadian Dollar",
+        "Symbol": "$",
+        "Country": "Canada",
+        "Continent": "North America",
+        "Value": 1.36,
+        "Code": "CAN"
     },
     {
-        "name": "Mexican Peso",
-        "symbol": "$",
-        "country": "Mexico",
-        "continent": "North America",
-        "value": 16.46,
-        "code": "MXN"
+        "Name": "Mexican Peso",
+        "Symbol": "$",
+        "Country": "Mexico",
+        "Continent": "North America",
+        "Value": 16.46,
+        "Code": "MXN"
     },
     {
-        "name": "Australian Dollar",
-        "symbol": "$",
-        "country": "Australia",
-        "continent": "Oceania",
-        "value": 1.52,
-        "code": "AUD"
+        "Name": "Australian Dollar",
+        "Symbol": "$",
+        "Country": "Australia",
+        "Continent": "Oceania",
+        "Value": 1.52,
+        "Code": "AUD"
     },
     {
-        "name": "New Zealand Dollar",
-        "symbol": "$",
-        "country": "New Zealand",
-        "continent": "Oceania",
-        "value": 1.66,
-        "code": "NZD"
+        "Name": "New Zealand Dollar",
+        "Symbol": "$",
+        "Country": "New Zealand",
+        "Continent": "Oceania",
+        "Value": 1.66,
+        "Code": "NZD"
     },
     {
-        "name": "Argentine Peso",
-        "symbol": "$",
-        "country": "Argentina",
-        "continent": "South America",
-        "value": 861.30,
-        "code": "ARS"
+        "Name": "Argentine Peso",
+        "Symbol": "$",
+        "Country": "Argentina",
+        "Continent": "South America",
+        "Value": 861.30,
+        "Code": "ARS"
     },
     {
-        "name": "Chilean Peso",
-        "symbol": "$",
-        "country": "Chile",
-        "continent": "South America",
-        "value": 949.60,
-        "code": "CLP"
+        "Name": "Chilean Peso",
+        "Symbol": "$",
+        "Country": "Chile",
+        "Continent": "South America",
+        "Value": 949.60,
+        "Code": "CLP"
     },
     {
-        "name": "Sol",
-        "symbol": "S/.",
-        "country": "Peru",
-        "continent": "South America",
-        "value": 3.70,
-        "code": "PEN"
+        "Name": "Sol",
+        "Symbol": "S/.",
+        "Country": "Peru",
+        "Continent": "South America",
+        "Value": 3.70,
+        "Code": "PEN"
     },
     {
-        "name": "Balboa",
-        "symbol": "B/.",
-        "country": "Panama",
-        "continent": "Central America",
-        "value": 1.00,
-        "code": "PAB"
+        "Name": "Balboa",
+        "Symbol": "B/.",
+        "Country": "Panama",
+        "Continent": "Central America",
+        "Value": 1.00,
+        "Code": "PAB"
     },
     {
-        "name": "Chinese Yuan",
-        "symbol": "¥",
-        "country": "China",
-        "continent": "Asia",
-        "value": 7.10,
-        "code": "CNY"
+        "Name": "Chinese Yuan",
+        "Symbol": "¥",
+        "Country": "China",
+        "Continent": "Asia",
+        "Value": 7.10,
+        "Code": "CNY"
     },
     {
-        "name": "Japanese Yen",
-        "symbol": "¥",
-        "country": "Japan",
-        "continent": "Asia",
-        "value": 151.55,
-        "code": "JPY"
+        "Name": "Japanese Yen",
+        "Symbol": "¥",
+        "Country": "Japan",
+        "Continent": "Asia",
+        "Value": 151.55,
+        "Code": "JPY"
     },
     {
-        "name": "South Korean Won",
-        "symbol": "₩",
-        "country": "South Korea",
-        "continent": "Asia",
-        "value": 1351.27,
-        "code": "KRW"
+        "Name": "South Korean Won",
+        "Symbol": "₩",
+        "Country": "South Korea",
+        "Continent": "Asia",
+        "Value": 1351.27,
+        "Code": "KRW"
     },
     {
-        "name": "South African Rand",
-        "symbol": "R",
-        "country": "South Africa",
-        "continent": "Africa",
-        "value": 18.69,
-        "code": "ZAR"
+        "Name": "South African Rand",
+        "Symbol": "R",
+        "Country": "South Africa",
+        "Continent": "Africa",
+        "Value": 18.69,
+        "Code": "ZAR"
     },
     {
-        "name": "Nigeria Naira",
-        "symbol": "N",
-        "country": "Nigeria",
-        "continent": "Africa",
-        "value": 1295.76,
-        "code": "NGN"
+        "Name": "Nigeria Naira",
+        "Symbol": "N",
+        "Country": "Nigeria",
+        "Continent": "Africa",
+        "Value": 1295.76,
+        "Code": "NGN"
     },
     {
-        "name": "Pound Sterling",
-        "symbol": "£",
-        "country": "United Kingdom",
-        "continent": "Europe",
-        "value": 0.79,
-        "code": "GBP"
+        "Name": "Pound Sterling",
+        "Symbol": "£",
+        "Country": "United Kingdom",
+        "Continent": "Europe",
+        "Value": 0.79,
+        "Code": "GBP"
     },
     {
-        "name": "Nicaraguan Cordoba",
-        "symbol": "C$",
-        "country": "Nicaragua",
-        "continent": "Central America",
-        "value": 36.78,
-        "code": "NIO"
+        "Name": "Nicaraguan Cordoba",
+        "Symbol": "C$",
+        "Country": "Nicaragua",
+        "Continent": "Central America",
+        "Value": 36.78,
+        "Code": "NIO"
     },
     {
-        "name": "Indian Rupee",
-        "symbol": "₹",
-        "country": "India",
-        "continent": "Asia",
-        "value": 83.30,
-        "code": "INR"
+        "Name": "Indian Rupee",
+        "Symbol": "₹",
+        "Country": "India",
+        "Continent": "Asia",
+        "Value": 83.30,
+        "Code": "INR"
     },
     {
-        "name": "Singapore Dollar",
-        "symbol": "S$",
-        "country": "Singapore",
-        "continent": "Asia",
-        "value": 1.35,
-        "code": "SGD"
+        "Name": "Singapore Dollar",
+        "Symbol": "S$",
+        "Country": "Singapore",
+        "Continent": "Asia",
+        "Value": 1.35,
+        "Code": "SGD"
     },
     {
-        "name": "Vietnamese Dong",
-        "symbol": "₫",
-        "country": "Vietnam",
-        "continent": "Asia",
-        "value": 24965,
-        "code": "VND"
+        "Name": "Vietnamese Dong",
+        "Symbol": "₫",
+        "Country": "Vietnam",
+        "Continent": "Asia",
+        "Value": 24965,
+        "Code": "VND"
     },
     {
-        "base_currency": {
-            "name": "Euro",
-            "symbol": "€",
-            "value": 0.92,
-            "code": "EUR",
-            "continent": "Europe"
+        "Base_currency": {
+            "Name": "Euro",
+            "Symbol": "€",
+            "Value": 0.92,
+            "Code": "EUR",
+            "Continent": "Europe"
         },
-        "countries": [
-            { "country": "Austria" },
-            { "country": "Belgium" },
-            { "country": "Croatia" },
-            { "country": "Cyprus" },
-            { "country": "Estonia" },
-            { "country": "Finland" },
-            { "country": "France" },
-            { "country": "Germany" },
-            { "country": "Greece" },
-            { "country": "Ireland" },
-            { "country": "Italy" },
-            { "country": "Latvia" },
-            { "country": "Lithuania" },
-            { "country": "Luxembourg" },
-            { "country": "Malta" },
-            { "country": "Netherlands" },
-            { "country": "Portugal" },
-            { "country": "Slovakia" },
-            { "country": "Slovenia" },
-            { "country": "Spain" }
+        "Countries": [
+            { "Country": "Austria" },
+            { "Country": "Belgium" },
+            { "Country": "Croatia" },
+            { "Country": "Cyprus" },
+            { "Country": "Estonia" },
+            { "Country": "Finland" },
+            { "Country": "France" },
+            { "Country": "Germany" },
+            { "Country": "Greece" },
+            { "Country": "Ireland" },
+            { "Country": "Italy" },
+            { "Country": "Latvia" },
+            { "Country": "Lithuania" },
+            { "Country": "Luxembourg" },
+            { "Country": "Malta" },
+            { "Country": "Netherlands" },
+            { "Country": "Portugal" },
+            { "Country": "Slovakia" },
+            { "Country": "Slovenia" },
+            { "Country": "Spain" }
         ]
     },
     {
-        "base_currency": {
-            "name": "Dirham",
-            "symbol": "د.إ",
-            "value": 3.67,
-            "code": "AED"
+        "Base_currency": {
+            "Name": "Dirham",
+            "Symbol": "د.إ",
+            "Value": 3.67,
+            "Code": "AED"
         },
-        "countries": [
-            { "country": "Morocco", "continent": "Africa" },
-            { "country": "United Arab Emirates", "continent": "Asia"}
+        "Countries": [
+            { "Country": "Morocco", "Continent": "Africa" },
+            { "Country": "United Arab Emirates", "Continent": "Asia"}
         ]
     },
     {
-        "base_currency": {
-            "name": "West African CFA",
-            "symbol": "CFAF",
-            "value": 605.13,
-            "code": "XOF",
-            "continent": "Africa"
+        "Base_currency": {
+            "Name": "West African CFA",
+            "Symbol": "CFAF",
+            "Value": 605.13,
+            "Code": "XOF",
+            "Continent": "Africa"
         },
-        "countries": [
-            { "country": "Senegal" },
-            { "country": "Mali" },
-            { "country": "Niger" },
-            { "country": "Benin" },
-            { "country": "Guinea-Bissau" },
-            { "country": "Côte d'Ivoire" }
+        "Countries": [
+            { "Country": "Senegal" },
+            { "Country": "Mali" },
+            { "Country": "Niger" },
+            { "Country": "Benin" },
+            { "Country": "Guinea-Bissau" },
+            { "Country": "Côte d'Ivoire" }
         ]
     }
 ]
