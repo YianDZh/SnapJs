@@ -53,7 +53,7 @@ fetch('data.json')
   
     data.forEach(item => {
       if (item.hasOwnProperty('Name')) {
-        // Unique currency object
+        // Individual currency object
         const row = document.createElement('tr');
   
         properties.forEach(property => {
@@ -63,47 +63,38 @@ fetch('data.json')
         });
   
         table.appendChild(row);
-      } 
-      else {
+      } else {
         // Base currency object
         const baseCurrency = item.Base_currency;
-        const baseCurrencyRow = document.createElement('tr');
         const countries = item.Countries;
-        countries.forEach(country => {
-          const countryRow = document.createElement('tr');
   
-          properties.forEach(property => {
-            
-            if (property === 'Name' || property === 'Value') {
-              const cell = document.createElement('td');
-              if (property === 'Name') {
-                cell.textContent = 'Country';
-              } else {
-                cell.textContent = '';
-              }
-              countryRow.appendChild(cell);
-            } else {
-              const cell = document.createElement('td');
-              cell.textContent = country.Country;
-              countryRow.appendChild(cell);
-            }
-          });
+        // Create a row for the base currency
+        const baseCurrencyRow = document.createElement('tr');
   
         properties.forEach(property => {
-          if (property === 'Value') {
-            const cell = document.createElement('td');
-            cell.textContent = 'Value';
-            baseCurrencyRow.appendChild(cell);
-          } else {
-            const cell = document.createElement('td');
-            cell.textContent = baseCurrency[property];
-            baseCurrencyRow.appendChild(cell);
-          }
+          const cell = document.createElement('td');
+          cell.textContent = baseCurrency[property];
+          baseCurrencyRow.appendChild(cell);
         });
   
         table.appendChild(baseCurrencyRow);
   
-        
+        // Create a row for each country using the base currency
+        countries.forEach(country => {
+          const countryRow = document.createElement('tr');
+  
+          properties.forEach(property => {
+            const cell = document.createElement('td');
+  
+            if (property === 'Name') {
+              cell.textContent = country.Country;
+            } else if (property === 'Continent') {
+              cell.textContent = country.Continent || baseCurrency.Continent;
+            } else {
+              cell.textContent = baseCurrency[property];
+            }
+          });
+  
           table.appendChild(countryRow);
         });
       }
