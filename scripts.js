@@ -24,29 +24,46 @@
  */
 
 
-
-const FRESH_PRINCE_URL = "https://upload.wikimedia.org/wikipedia/en/3/33/Fresh_Prince_S1_DVD.jpg";
-const CURB_POSTER_URL = "https://m.media-amazon.com/images/M/MV5BZDY1ZGM4OGItMWMyNS00MDAyLWE2Y2MtZTFhMTU0MGI5ZDFlXkEyXkFqcGdeQXVyMDc5ODIzMw@@._V1_FMjpg_UX1000_.jpg";
-const EAST_LOS_HIGH_POSTER_URL = "https://static.wikia.nocookie.net/hulu/images/6/64/East_Los_High.jpg";
 //TODO: Input pictures of flags
 
 //imports data from data.json
-fetch('data.json')
-    .then(response => response.json())
-    .then(data => {
-        console.log(data); 
-    })
-    .catch(error => {
-        console.error('Error fetching data:', error);
-    });
+const currencyContent = document.querySelector('.currency-content');
 
+fetch('data.json')
+  .then(response => response.json())
+  .then(data => {
+    displayDataAsTable(data);
+  })
+  .catch(error => {
+    console.error('Error fetching data:', error);
+  });
+
+function displayDataAsTable(data) {
+  const table = document.createElement('table');
+  // Add code to create table headers and rows based on the data
+  const headerRow = document.createElement('tr');
+  const nameHeader = document.createElement('th');
+  nameHeader.textContent = 'Name';
+  headerRow.appendChild(nameHeader);
+
+  // Append the table to the currency-content div
+  data.forEach(item => {
+    const row = document.createElement('tr');
+
+    // Create table cells for each property in the object
+    const nameCell = document.createElement('td');
+    nameCell.textContent = item.name; // Replace 'name' with the appropriate property name
+    row.appendChild(nameCell);
+
+    // Add more table cells for other properties
+
+    table.appendChild(row);
+  });
+
+  currencyContent.appendChild(table);
+}
 
 // This is an array of strings (TV show titles)
-let titles = [
-    "Fresh Prince of Bel Air",
-    "Curb Your Enthusiasm",
-    "East Los High"
-];
 
 //*array of properties to be displayed on top
 let properties = [
@@ -54,96 +71,33 @@ let properties = [
     "Country",
     "Value compared to USD"
 ];
+displayProperties (properties);
 
-//function to display text on top of the 
 function displayProperties(properties) {
-    // Select the container where you want to display the properties
     const container = document.getElementById("property-container");
-
-    // Clear the container before displaying new properties
     container.innerHTML = "";
-
-    // Loop through the properties array
-    properties.forEach(property => {
-        // Create a new list item for each property
-        const listItem = document.createElement("li");
-        listItem.textContent = property;
-
-        // Append the list item to the container
-        container.appendChild(listItem);
+  
+    const propertyRow = document.createElement("div");
+    propertyRow.classList.add("property-row");
+  
+    properties.forEach((property, index) => {
+      const listItem = document.createElement("div");
+      listItem.classList.add("property-item");
+      listItem.textContent = property;
+      propertyRow.appendChild(listItem);
     });
+  
+    container.appendChild(propertyRow);
+  
     const tittlesDiv = document.querySelector('.tittles');
     tittlesDiv.style.display = 'block';
-
-}
-
+  }
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // Your final submission should have much more data than this, and 
 // you should use more than just an array of strings to store it all.
 
 // Call the function with your array of properties
 
-
-// Function to display titles
-function displayTitles(title, wordsArray) {
-    // Set the title
-    titleElement.textContent = title;
-
-    // Clear existing list items
-    bulletList.innerHTML = '';
-
-    // Add list items from the array
-    wordsArray.forEach(word => {
-        const listItem = document.createElement('li');
-        listItem.textContent = word;
-        bulletList.appendChild(listItem);
-    });
-
-    // Show the hidden element
-    tittlesDiv.style.display = 'block';
-}
-// This function adds cards the page to display the data in the array
-function showCards() {
-    const cardContainer = document.getElementById("card-container");
-    cardContainer.innerHTML = "";
-    const templateCard = document.querySelector(".card");
-    
-    for (let i = 0; i < titles.length; i++) {
-        let title = titles[i];
-
-        // This part of the code doesn't scale very well! After you add your
-        // own data, you'll need to do something totally different here.
-        let imageURL = "";
-        if (i == 0) {
-            imageURL = FRESH_PRINCE_URL;
-        } else if (i == 1) {
-            imageURL = CURB_POSTER_URL;
-        } else if (i == 2) {
-            imageURL = EAST_LOS_HIGH_POSTER_URL;
-        }
-
-        const nextCard = templateCard.cloneNode(true); // Copy the template card
-        editCardContent(nextCard, title, imageURL); // Edit title and image
-        cardContainer.appendChild(nextCard); // Add new card to the container
-    }
-}
-
-
-function editCardContent(card, newTitle, newImageURL) {
-    card.style.display = "block";
-
-    const cardHeader = card.querySelector("h2");
-    cardHeader.textContent = newTitle;
-
-    const cardImage = card.querySelector("img");
-    cardImage.src = newImageURL;
-    cardImage.alt = newTitle + " Poster";
-
-    // You can use console.log to help you debug!
-    // View the output by right clicking on your website,
-    // select "Inspect", then click on the "Console" tab
-    console.log("new card:", newTitle, "- html: ", card);
-}
 
 // This calls the addCards() function when the page is first loaded
 document.addEventListener("DOMContentLoaded", showCards);
@@ -160,4 +114,3 @@ function removeLastCard() {
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
-displayProperties (properties);

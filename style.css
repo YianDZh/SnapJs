@@ -7,7 +7,7 @@ body {
 .main-header {
     background-color: rgba(22, 48, 134, 0.525);
     padding-bottom: 9px;
-    border-top: 6px solid white;
+    border-top: 10px solid white;
 
 }
 
@@ -20,41 +20,31 @@ body {
     color: rgb(255, 255, 255);
 }
 
-#card-container {
+.property-row {
     display: flex;
     justify-content: center;
-    margin: 20px;
-}
-
+  }
+  
+  .property-item {
+    font-weight: bold;
+    margin: 0 10px;
+  }
+/* CSS to style the properties list */
 #property-container {
-    display: flex;
-    justify-content: center;
-    margin: 20px;
-}
-
-.card {
-    width: 300px;
-    border: 1px solid #000000;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(220, 15, 15, 0.1);
-    margin: 5px;
-}
-
-.card-content {
-    padding: 20px;
-    font-family: "Verdana";
-    color: #777;
-}
-
-.card-content h2 {
-    margin-top: 0;
-    font-size: 20px;
-}
-
-.card img {
-    width: 100%;
-    height: auto;
-}
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  #property-container li {
+    padding: 5px 10px;
+    border-bottom: 1px solid #ccc;
+    font-size: 16px;
+  }
+  
+  .tittles {
+    display: none;
+  }
 
 .footer {
     display: flex;
