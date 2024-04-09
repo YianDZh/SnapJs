@@ -153,7 +153,34 @@ function displayProperties(properties) {
 
 
 // This calls the addCards() function when the page is first loaded
-document.addEventListener("DOMContentLoaded", showCards);
+function displaySingleRow(dataItem, properties, container) {
+  const table = document.createElement('table');
+  const headerRow = document.createElement('tr');
+
+  properties.forEach(property => {
+    const headerCell = document.createElement('th');
+    headerCell.textContent = property;
+    headerRow.appendChild(headerCell);
+  });
+
+  table.appendChild(headerRow);
+
+  const row = document.createElement('tr');
+
+  properties.forEach(property => {
+    if (dataItem[property]) {
+      const cell = document.createElement('td');
+      cell.textContent = dataItem[property];
+      row.appendChild(cell);
+    }
+  });
+
+  table.appendChild(row);
+
+  container.innerHTML = '';
+  container.appendChild(table);
+}
+
 
 const shuffleButton = document.getElementById('shuffleButton');
 shuffleButton.addEventListener('click', function() {
@@ -161,7 +188,7 @@ shuffleButton.addEventListener('click', function() {
 });
 
 function shuffleRows() {
-  const shuffledData = shuffle([...originalData]); // Shuffle a copy of the original data
+  const shuffledData = shuffle([...data]); // Shuffle a copy of the original data
   displayDataAsTable(shuffledData, propertiesToDisplay, currencyContent);
 }
 
@@ -173,17 +200,43 @@ function shuffle(array) {
   }
   return array;
 }
-
 const searchButton = document.getElementById('search-button');
 searchButton.addEventListener('click', () => {
   const searchBox = document.getElementById('search-box');
   const searchTerm = searchBox.value.toUpperCase();
   searchCurrencies(searchTerm);
+  displaySingleRow(shuffledData, propertiesToDisplay, currencyContent);
+
 });
 
-function searchCurrencies(searchTerm) {
-  const filteredData = originalData.filter(item => {
-    return item.Code.toUpperCase() === searchTerm; // Filter based on currency code
-  });
-  displayDataAsTable(filteredData, propertiesToDisplay, currencyContent);
-}
+  // function searchCurrencies(searchTerm) {
+  //   const filteredData = data.filter(currency => {
+  //     return currency.Code.toUpperCase() === searchTerm || (currency.Base_currency && currency.Base_currency.Code.toUpperCase() === searchTerm);
+  //   });
+  //   if (filteredData.length > 0) {
+  //     displayDataAsTable(filteredData, propertiesToDisplay, currencyContent);
+  //   } else {
+  //     console.log('No currency found for the search term:', searchTerm);
+  //   }
+  // }
+
+  function searchCurrencies() {
+    const searchTerm = document.getElementById('search-box').value.toUpperCase();
+    const tableRows = document.querySelectorAll('table tr');
+  
+    tableRows.forEach(row => {
+      const cells = row.querySelectorAll('td');
+      let found = false;
+      cells.forEach(cell => {
+        if (cell.textContent.toUpperCase().includes(searchTerm)) {
+          found = true;
+        }
+      });
+      if (found) {
+        row.style.display = "table-row";
+      } else {
+        row.style.display = "none";
+      }
+    });
+  }
+  
