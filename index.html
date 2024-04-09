@@ -13,19 +13,21 @@
     </header>
     <div class="tittles">
         <ul id="property-container"></ul>
-        
+        <div id="search-container">
+            <input type="text" id="search-box" placeholder="Search by currency code">
+            <button id="search-button">Search</button>
+          </div>
         <div class="currency-content">
             <table id="currency-table"></table>
         </div>
     </div>
 
+
     <div class="footer">
-        <button onclick="shuffleCurrencies();">
+        <button id="shuffleButton">
             Shuffle
-          </button>
-        <button onclick="removeLastCard();">
-            Calculator
         </button>
+          <div id="table-container"></div>
     </div>
     <script type="text/javascript" src="scripts.js"></script>
 

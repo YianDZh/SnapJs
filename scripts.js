@@ -1,3 +1,4 @@
+
 /**
  * Data Catalog Project Starter Code - SEA Stage 2
  *
@@ -24,16 +25,16 @@
  */
 
 
-//TODO: Input pictures of flags
-
 //imports data from data.json
 const currencyContent = document.querySelector('.currency-content');
+let data;
+let propertiesToDisplay = ['Name', 'Country', 'Value', 'Continent', 'Symbol', 'Code']; // Define initial properties
 
 fetch('data.json')
   .then(response => response.json())
-  .then(data => {
-    const propertiesToDisplay = ['Name', 'Country', 'Value', 'Continent', 'Symbol'];
-    displayDataAsTable(data, propertiesToDisplay, document.querySelector('.currency-content'));
+  .then(responseData => {
+    data = responseData;
+    displayDataAsTable(data, propertiesToDisplay, currencyContent); // Display initial table
   })
   .catch(error => {
     console.error('Error fetching data:', error);
@@ -52,61 +53,71 @@ fetch('data.json')
     table.appendChild(headerRow);
   
     data.forEach(item => {
-      if (item.hasOwnProperty('Name')) {
-        // Individual currency object
-        const row = document.createElement('tr');
-  
-        properties.forEach(property => {
-          const cell = document.createElement('td');
-          cell.textContent = item[property];
-          row.appendChild(cell);
-        });
-  
-        table.appendChild(row);
-      } else {
-        // Base currency object
+      if (item.hasOwnProperty('Base_currency')) {
         const baseCurrency = item.Base_currency;
         const countries = item.Countries;
   
-        // Create a row for the base currency
-        const baseCurrencyRow = document.createElement('tr');
-  
-        properties.forEach(property => {
-          const cell = document.createElement('td');
-          cell.textContent = baseCurrency[property];
-          baseCurrencyRow.appendChild(cell);
-        });
-  
-        table.appendChild(baseCurrencyRow);
-  
-        // Create a row for each country using the base currency
-        countries.forEach(country => {
-          const countryRow = document.createElement('tr');
+        if (countries && countries.length > 0) {
+          const baseCurrencyRow = document.createElement('tr');
   
           properties.forEach(property => {
-            const cell = document.createElement('td');
-  
-            if (property === 'Name') {
-              cell.textContent = country.Country;
-            } else if (property === 'Continent') {
-              cell.textContent = country.Continent || baseCurrency.Continent;
-            } else {
+            if (baseCurrency.hasOwnProperty(property)) {
+              const cell = document.createElement('td');
               cell.textContent = baseCurrency[property];
+              baseCurrencyRow.appendChild(cell);
             }
           });
   
-          table.appendChild(countryRow);
+          table.appendChild(baseCurrencyRow);
+  
+          countries.forEach(country => {
+            const countryRow = document.createElement('tr');
+  
+            properties.forEach(property => {
+              if (property === 'Country') {
+                const cell = document.createElement('td');
+                cell.textContent = country.Country;
+                countryRow.appendChild(cell);
+              } else if (property === 'Continent') {
+                const cell = document.createElement('td');
+                cell.textContent = country.Continent || baseCurrency.Continent;
+                countryRow.appendChild(cell);
+              } else if (baseCurrency.hasOwnProperty(property)) {
+                const cell = document.createElement('td');
+                cell.textContent = baseCurrency[property];
+                countryRow.appendChild(cell);
+              }
+            });
+  
+            table.appendChild(countryRow);
+          });
+        }
+      } else if (item.hasOwnProperty('Name')) {
+        const row = document.createElement('tr');
+  
+        properties.forEach(property => {
+          if (item[property]) {
+            const cell = document.createElement('td');
+            cell.textContent = item[property];
+            row.appendChild(cell);
+          }
         });
+  
+        table.appendChild(row);
       }
     });
   
+    container.innerHTML = '';
     container.appendChild(table);
   }
+
 //*array of properties to be displayed on top
 let properties = [
-    "Name",
-    "Country",
-    "Value"
+    "Currencies",
+    "***",
+    "Around the world",
+    "***",
+    "Compared to the dollar"
 ];
 displayProperties (properties);
 
@@ -144,31 +155,35 @@ function displayProperties(properties) {
 // This calls the addCards() function when the page is first loaded
 document.addEventListener("DOMContentLoaded", showCards);
 
-function quoteAlert() {
-    console.log("Button Clicked!")
-    alert("On the works!!");
-}
-
-function shuffleElements(container) {
-  var elements = container.children;
-  for (var i = elements.length; i >= 0; i--) {
-    container.appendChild(elements[Math.random() * i | 0]);
-  }
-}
-
-// Wait for the page to fully load before shuffling the elements
-window.addEventListener('load', function() {
-  var button = document.querySelector('button[onclick*="shuffle"]');
-  button.addEventListener("click", function() {
-    var container = document.getElementById('currency-content');
-    shuffleElements(container);
-  });
+const shuffleButton = document.getElementById('shuffleButton');
+shuffleButton.addEventListener('click', function() {
+  shuffleRows();
 });
 
-function removeLastCard() {
-    titles.pop(); // Remove last item in titles array
-    showCards(); // Call showCards again to refresh
+function shuffleRows() {
+  const shuffledData = shuffle([...originalData]); // Shuffle a copy of the original data
+  displayDataAsTable(shuffledData, propertiesToDisplay, currencyContent);
 }
-//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
+// Shuffle function
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
 
+const searchButton = document.getElementById('search-button');
+searchButton.addEventListener('click', () => {
+  const searchBox = document.getElementById('search-box');
+  const searchTerm = searchBox.value.toUpperCase();
+  searchCurrencies(searchTerm);
+});
+
+function searchCurrencies(searchTerm) {
+  const filteredData = originalData.filter(item => {
+    return item.Code.toUpperCase() === searchTerm; // Filter based on currency code
+  });
+  displayDataAsTable(filteredData, propertiesToDisplay, currencyContent);
+}
