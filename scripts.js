@@ -1,4 +1,4 @@
-
+//! INSTRUCTIONS
 /**
  * Data Catalog Project Starter Code - SEA Stage 2
  *
@@ -24,40 +24,55 @@
  * 
  */
 
+//*Disclaimer: This is definetly bad syntax and spagethi code, since I've never coded in Java script, CSS nor HTML so as a first experience
+//This was truly tough for me and I really appretiate the friends that helped me finding resources on the internet due to me having no clue at first
+//I feel the worst part of all this project was printing from JS into HTML, due to how unfamiliar I was with all this syntax
+
+
+const currencyContent = document.querySelector('.currency-content');
+//"placeholder"
+let data;
+//Properties to be displayed
+let propertiesToDisplay = ['Name', 'Country', 'Value', 'Continent', 'Symbol', 'Code'];
 
 //imports data from data.json
-const currencyContent = document.querySelector('.currency-content');
-let data;
-let propertiesToDisplay = ['Name', 'Country', 'Value', 'Continent', 'Symbol', 'Code']; // Define initial properties
-
 fetch('data.json')
   .then(response => response.json())
   .then(responseData => {
+    //response is like some sort of scanner
     data = responseData;
+    //then data is gonna be an array
     displayDataAsTable(data, propertiesToDisplay, currencyContent); // Display initial table
   })
   .catch(error => {
     console.error('Error fetching data:', error);
   });
 
+  //*Toughest function to work on
   function displayDataAsTable(data, properties, container) {
+    //"defines" table
     const table = document.createElement('table');
     const headerRow = document.createElement('tr');
   
+    //looping through the properties given, which will create the top row with the name of the displayed properties
     properties.forEach(property => {
       const headerCell = document.createElement('th');
+      //creates cells and fills it up with the content
       headerCell.textContent = property;
+      //appends cells
       headerRow.appendChild(headerCell);
     });
-  
+  //function that will "attach" the resulting row into the actual table
     table.appendChild(headerRow);
   
     data.forEach(item => {
       if (item.hasOwnProperty('Base_currency')) {
+        //case for a group of countries that share a currency
         const baseCurrency = item.Base_currency;
         const countries = item.Countries;
   
         if (countries && countries.length > 0) {
+          //will display the countries that are grouped into a base currency group
           const baseCurrencyRow = document.createElement('tr');
   
           properties.forEach(property => {
@@ -67,7 +82,8 @@ fetch('data.json')
               baseCurrencyRow.appendChild(cell);
             }
           });
-  
+          
+          //appends result into the actual table
           table.appendChild(baseCurrencyRow);
   
           countries.forEach(country => {
@@ -75,14 +91,19 @@ fetch('data.json')
   
             properties.forEach(property => {
               if (property === 'Country') {
+                //Case in which there is a group of countries in my data
                 const cell = document.createElement('td');
                 cell.textContent = country.Country;
                 countryRow.appendChild(cell);
-              } else if (property === 'Continent') {
+              } 
+              else if (property === 'Continent') {
+                //Case in which there is a group of countries that despite sharing currency are located in a different continent
                 const cell = document.createElement('td');
                 cell.textContent = country.Continent || baseCurrency.Continent;
                 countryRow.appendChild(cell);
-              } else if (baseCurrency.hasOwnProperty(property)) {
+              } 
+              else if (baseCurrency.hasOwnProperty(property)) {
+                //regular case
                 const cell = document.createElement('td');
                 cell.textContent = baseCurrency[property];
                 countryRow.appendChild(cell);
@@ -92,9 +113,10 @@ fetch('data.json')
             table.appendChild(countryRow);
           });
         }
-      } else if (item.hasOwnProperty('Name')) {
+      } 
+      else if (item.hasOwnProperty('Name')) {
+        //Individual currency case
         const row = document.createElement('tr');
-  
         properties.forEach(property => {
           if (item[property]) {
             const cell = document.createElement('td');
@@ -111,7 +133,7 @@ fetch('data.json')
     container.appendChild(table);
   }
 
-//*array of properties to be displayed on top
+//*array of words to be displayed on top
 let properties = [
     "Currencies",
     "***",
@@ -121,6 +143,7 @@ let properties = [
 ];
 displayProperties (properties);
 
+ //Done for testing purposes, and just modified it to have a weird "welcome"
 function displayProperties(properties) {
   const container = document.getElementById("property-container");
   container.innerHTML = "";
@@ -153,7 +176,9 @@ function displayProperties(properties) {
 
 
 // This calls the addCards() function when the page is first loaded
+
 function displaySingleRow(dataItem, properties, container) {
+  //function to display result of search
   const table = document.createElement('table');
   const headerRow = document.createElement('tr');
 
@@ -187,8 +212,11 @@ shuffleButton.addEventListener('click', function() {
   shuffleRows();
 });
 
+// Shuffle a copy of the original data
+//Thought it was a good idea, since it helped me learning Array in C++
+//Not really useful in a real-world application
 function shuffleRows() {
-  const shuffledData = shuffle([...data]); // Shuffle a copy of the original data
+  const shuffledData = shuffle([...data]); 
   displayDataAsTable(shuffledData, propertiesToDisplay, currencyContent);
 }
 
@@ -200,6 +228,7 @@ function shuffle(array) {
   }
   return array;
 }
+
 const searchButton = document.getElementById('search-button');
 searchButton.addEventListener('click', () => {
   const searchBox = document.getElementById('search-box');
@@ -209,17 +238,7 @@ searchButton.addEventListener('click', () => {
 
 });
 
-  // function searchCurrencies(searchTerm) {
-  //   const filteredData = data.filter(currency => {
-  //     return currency.Code.toUpperCase() === searchTerm || (currency.Base_currency && currency.Base_currency.Code.toUpperCase() === searchTerm);
-  //   });
-  //   if (filteredData.length > 0) {
-  //     displayDataAsTable(filteredData, propertiesToDisplay, currencyContent);
-  //   } else {
-  //     console.log('No currency found for the search term:', searchTerm);
-  //   }
-  // }
-
+//Search function, it will take the input from the user and change it to upercase regardless of the input
   function searchCurrencies() {
     const searchTerm = document.getElementById('search-box').value.toUpperCase();
     const tableRows = document.querySelectorAll('table tr');
@@ -234,8 +253,10 @@ searchButton.addEventListener('click', () => {
       });
       if (found) {
         row.style.display = "table-row";
+        //case in which the display row function is called
       } else {
         row.style.display = "none";
+        //failed case
       }
     });
   }
